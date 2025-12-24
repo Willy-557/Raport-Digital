@@ -95,42 +95,42 @@ public class File {
                     // Lihat Raport Kelas
                     case 3:
                         if (dataSiswa.isEmpty()) {
-                            System.out.println("Data siswa masih kosong!");
+                            System.out.println("\nData siswa masih kosong!");
                         }
-                        
-                        System.out.println("\n--- Raport Kelas ---");
+                        else {
+                            System.out.println("\n--- Raport Kelas ---");
 
-                        // Untuk print output
-                        for (String NamaSiswa : dataSiswa.keySet()){
+                            // Untuk print output
+                            for (String NamaSiswa : dataSiswa.keySet()){
 
-                            // Validasi apakah nilai masih kosong atau ada isinya?
-                            if (dataSiswa.get(NamaSiswa).isEmpty()) {
-                                System.out.println("\nData siswa '" + NamaSiswa + "' masih kosong!");
-                                continue;
-                            }
+                                // Validasi apakah nilai masih kosong atau ada isinya?
+                                if (dataSiswa.get(NamaSiswa).isEmpty()) {
+                                    System.out.println("\nData siswa '" + NamaSiswa + "' masih kosong!");
+                                    continue;
+                                }
 
-                            else {
-                                    System.out.println("\nSiswa: " + NamaSiswa);
-                                System.out.print("- Nilai : ");
-                                int totalNilai = 0;
-                                double hasil = 0;
-                                
-                                for (Integer nilai : dataSiswa.get(NamaSiswa)){
-                                    System.out.print(nilai + ", ");
-                                    totalNilai += nilai;
+                                else {
+                                        System.out.println("\nSiswa: " + NamaSiswa);
+                                    System.out.print("- Nilai : ");
+                                    int totalNilai = 0;
+                                    double hasil = 0;
+                                    
+                                    for (Integer nilai : dataSiswa.get(NamaSiswa)){
+                                        System.out.print(nilai + ", ");
+                                        totalNilai += nilai;
+                                        }
+                                    
+                                    // Untuk print rata-rata dan menentukan lulus atau tidak
+                                    hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
+                                    System.out.println("\n- Rata - rata : " + hasil);
+                                    if (hasil >= 75) {
+                                        System.out.println("- Status : LULUS");
                                     }
-                                
-                                // Untuk print rata-rata dan menentukan lulus atau tidak
-                                hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
-                                System.out.println("\n- Rata - rata : " + hasil);
-                                if (hasil >= 75) {
-                                    System.out.println("- Status : LULUS");
-                                }
-                                else if (hasil < 75) {
-                                    System.out.println("- Status : REMIDI");
+                                    else if (hasil < 75) {
+                                        System.out.println("- Status : REMIDI");
+                                    }
                                 }
                             }
-                            
                         }
                 }          
             }

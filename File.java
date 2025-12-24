@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class File {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        
         HashMap <String, ArrayList<Integer>> dataSiswa = new HashMap<>();
 
         while (true) {
@@ -20,11 +19,11 @@ public class File {
             scanner.nextLine();
 
             if (opsi == 4) {
-                System.out.println("Terimakasih!");
+                System.out.println("\nTerimakasih!");
                 break;
             }
             else if (opsi > 4 || opsi < 1) {
-                System.out.println("Invalid input!");
+                System.out.println("\nInvalid input!");
                 continue;
             }
             else {
@@ -32,54 +31,60 @@ public class File {
 
                     // Tambah Siswa Baru
                     case 1:
-                        System.out.println("--- Penambahan Siswa Baru ---");
+                        System.out.println("\n--- Penambahan Siswa Baru ---");
                         System.out.print("Masukkan nama siswa baru: ");
                         String namaSiswaBaru = scanner.nextLine();
 
                         // Untuk cek apakah namanya siswa yang baru diinput sudah ada di sistem atau tidak.
                         if (dataSiswa.containsKey(namaSiswaBaru)) {
-                            System.out.println("Siswa yang bernama '" + namaSiswaBaru + "' sudah ada di dalam sistem!");
+                            System.out.println("\nSiswa yang bernama '" + namaSiswaBaru + "' sudah ada di dalam sistem!");
                             break;
                         }
                         else {
                             ArrayList<Integer> nilaiSiswa = new ArrayList<>();
                             dataSiswa.put(namaSiswaBaru, nilaiSiswa);
-                            System.out.println("Siswa bernama '" + namaSiswaBaru + "' berhasil di-tambahkan ke sistem!");
+                            System.out.println("\nSiswa bernama '" + namaSiswaBaru + "' berhasil di-tambahkan ke sistem!");
                             break;
                         }
 
                     // Input Nilai Ujian
                     case 2:
                         if (dataSiswa.isEmpty()){
-                            System.out.println("Data siswa masih kosong!");
+                            System.out.println("\nData siswa masih kosong!");
+                            break;
                         }
                         else {
-                            System.out.println("--- Penambahan Nilai Siswa ---");
+                            System.out.println("\n--- Penambahan Nilai Siswa ---");
                             
+                            System.out.println("\nDaftar siswa:");
                             for (String namaSiswa : dataSiswa.keySet()){
                                 System.out.println("- " + namaSiswa);
                             }
 
-                            System.out.print("Pilih siswa yang ingin di-inputkan nilainya: ");
+                            System.out.print("\nPilih siswa yang ingin di-inputkan nilainya: ");
                             String pilihanSiswa = scanner.nextLine();
 
+
+                            // Double check agar nilai yang akan di-input sesuai dengan nama siswa
                             if (!dataSiswa.containsKey(pilihanSiswa)) {
-                                System.out.println("Siswa yang bernama '" + pilihanSiswa + "' tidak ada di dalam sistem!");
+                                System.out.println("\nSiswa yang bernama '" + pilihanSiswa + "' tidak ada di dalam sistem!");
                                 continue;
                             }
                             else {
+
+                                // Double check untuk nilai (range 0-100)
                                 while (true) {
-                                    System.out.print("Masukkan nilai siswa: ");
+                                    System.out.print("\nMasukkan nilai siswa: ");
                                     int nilai = scanner.nextInt();
                                     scanner.nextLine();
 
                                     if (nilai > 100 || nilai < 0) {
-                                        System.out.println("Input nilai hanya antara 0 - 100.");
+                                        System.out.println("\nInput nilai hanya antara 0 - 100.");
                                         continue;
                                     }
                                     else {
                                         dataSiswa.get(pilihanSiswa).add(nilai);
-                                        System.out.println("Penambahan nilai terhadap siswa yang bernama '" + pilihanSiswa + "' dengan nilai '" + nilai + "' berhasil di-lakukan!");
+                                        System.out.println("\nPenambahan nilai terhadap siswa yang bernama '" + pilihanSiswa + "' dengan nilai '" + nilai + "' berhasil di-lakukan!");
                                         break;
                                     }
                                 }
@@ -89,7 +94,7 @@ public class File {
 
                     // Lihat Raport Kelas
                     case 3:
-                        System.out.println("--- Raport Kelas ---");
+                        System.out.println("\n--- Raport Kelas ---");
 
                         // Untuk print output
                         for (String NamaSiswa : dataSiswa.keySet()){
@@ -102,7 +107,8 @@ public class File {
                                 System.out.print(nilai + ", ");
                                 totalNilai += nilai;
                                 }
-
+                            
+                            // Untuk print rata-rata dan menentukan lulus atau tidak
                             hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
                             System.out.println("\n- Rata - rata : " + hasil);
                             if (hasil >= 75) {

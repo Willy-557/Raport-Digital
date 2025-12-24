@@ -56,8 +56,18 @@ public class File {
                         }
 
                         System.out.print("Pilih siswa yang ingin di-inputkan nilainya: ");
+                        String pilihanSiswa = scanner.nextLine();
 
-                        if ()
+                        if (!dataSiswa.containsKey(pilihanSiswa)) {
+                            System.out.println("Siswa yang bernama '" + pilihanSiswa + "' tidak ada di dalam sistem!");
+                            continue;
+                        }
+                        else {
+                            System.out.print("Masukkan nilai siswa: ");
+                            int nilai = scanner.nextInt();
+
+                            
+                        }
                 }          
             }
         }

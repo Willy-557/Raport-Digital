@@ -98,25 +98,34 @@ public class File {
 
                         // Untuk print output
                         for (String NamaSiswa : dataSiswa.keySet()){
-                            System.out.println("\nSiswa: " + NamaSiswa);
-                            System.out.print("- Nilai : ");
-                            int totalNilai = 0;
-                            double hasil = 0;
-                            
-                            for (Integer nilai : dataSiswa.get(NamaSiswa)){
-                                System.out.print(nilai + ", ");
-                                totalNilai += nilai;
+
+                            // Validasi apakah nilai masih kosong atau ada isinya?
+                            if (dataSiswa.get(NamaSiswa).isEmpty()) {
+                                System.out.println("\nData siswa '" + NamaSiswa + "' masih kosong!");
+                                continue;
+                            }
+                            else {
+                                    System.out.println("\nSiswa: " + NamaSiswa);
+                                System.out.print("- Nilai : ");
+                                int totalNilai = 0;
+                                double hasil = 0;
+                                
+                                for (Integer nilai : dataSiswa.get(NamaSiswa)){
+                                    System.out.print(nilai + ", ");
+                                    totalNilai += nilai;
+                                    }
+                                
+                                // Untuk print rata-rata dan menentukan lulus atau tidak
+                                hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
+                                System.out.println("\n- Rata - rata : " + hasil);
+                                if (hasil >= 75) {
+                                    System.out.println("- Status : LULUS");
                                 }
+                                else if (hasil < 75) {
+                                    System.out.println("- Status : REMIDI");
+                                }
+                            }
                             
-                            // Untuk print rata-rata dan menentukan lulus atau tidak
-                            hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
-                            System.out.println("\n- Rata - rata : " + hasil);
-                            if (hasil >= 75) {
-                                System.out.println("- Status : LULUS");
-                            }
-                            else if (hasil < 75) {
-                                System.out.println("- Status : REMIDI");
-                            }
                         }
                 }          
             }

@@ -27,7 +27,15 @@ public class File {
                 continue;
             }
             else {
+                switch (opsi) {
+                    case 1:
+                        System.out.println("--- Penambahan Siswa Baru ---");
+                        System.out.println();
+                        break;
                 
+                    default:
+                        break;
+                }   
             }
         }
     }   

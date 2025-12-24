@@ -104,6 +104,7 @@ public class File {
                                 System.out.println("\nData siswa '" + NamaSiswa + "' masih kosong!");
                                 continue;
                             }
+                            
                             else {
                                     System.out.println("\nSiswa: " + NamaSiswa);
                                 System.out.print("- Nilai : ");

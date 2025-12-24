@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class File {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        ArrayList<Integer> nilai = new ArrayList<>();
-        HashMap <String, ArrayList<Integer>> storage = new HashMap<>();
+        ArrayList<Integer> nilaiSiswa = new ArrayList<>();
+        HashMap <String, ArrayList<Integer>> dataSiswa = new HashMap<>();
 
         while (true) {
             System.out.println("=== Raport Digital ===");
@@ -34,14 +34,15 @@ public class File {
                         System.out.print("Masukkan nama siswa baru: ");
                         String namaSiswaBaru = scanner.nextLine();
 
-                        if (storage.containsKey(namaSiswaBaru)) {
+                        if (dataSiswa.containsKey(namaSiswaBaru)) {
                             System.out.println("Siswa yang bernama '" + namaSiswaBaru + "' sudah ada di dalam sistem!");
                             break;
                         }
-                        break;
-                
-                    default:
-                        break;
+                        else {
+                            dataSiswa.put(namaSiswaBaru, nilaiSiswa);
+                            System.out.println("Siswa bernama '" + namaSiswaBaru + "' berhasil di-tambahkan ke sistem!");
+                            break;
+                        }
                 }   
             }
         }

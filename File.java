@@ -29,6 +29,8 @@ public class File {
             }
             else {
                 switch (opsi) {
+
+                    // Tambah Siswa Baru
                     case 1:
                         System.out.println("--- Penambahan Siswa Baru ---");
                         System.out.print("Masukkan nama siswa baru: ");

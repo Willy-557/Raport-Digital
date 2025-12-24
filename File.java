@@ -49,36 +49,39 @@ public class File {
 
                     // Input Nilai Ujian
                     case 2:
-                        
-                        System.out.println("--- Penambahan Nilai Siswa ---");
-                        
-                        for (String namaSiswa : dataSiswa.keySet()){
-                            System.out.println("- " + namaSiswa);
-                        }
-
-                        System.out.print("Pilih siswa yang ingin di-inputkan nilainya: ");
-                        String pilihanSiswa = scanner.nextLine();
-
-                        if (!dataSiswa.containsKey(pilihanSiswa)) {
-                            System.out.println("Siswa yang bernama '" + pilihanSiswa + "' tidak ada di dalam sistem!");
-                            continue;
+                        if (dataSiswa.isEmpty()){
+                            System.out.println("Data siswa masih kosong!");
                         }
                         else {
-                            while (true) {
-                                System.out.print("Masukkan nilai siswa: ");
-                                int nilai = scanner.nextInt();
+                            System.out.println("--- Penambahan Nilai Siswa ---");
+                            
+                            for (String namaSiswa : dataSiswa.keySet()){
+                                System.out.println("- " + namaSiswa);
+                            }
 
-                                if (nilai > 100 || nilai < 0) {
-                                    System.out.println("Input nilai hanya antara 0 - 100.");
-                                    continue;
-                                }
-                                else {
-                                    dataSiswa.get(pilihanSiswa).add(nilai);
-                                    System.out.println("Penambahan nilai terhadap siswa yang bernama '" + pilihanSiswa + "' dengan nilai '" + nilai + "' berhasil di-lakukan!");
-                                    break;
+                            System.out.print("Pilih siswa yang ingin di-inputkan nilainya: ");
+                            String pilihanSiswa = scanner.nextLine();
+
+                            if (!dataSiswa.containsKey(pilihanSiswa)) {
+                                System.out.println("Siswa yang bernama '" + pilihanSiswa + "' tidak ada di dalam sistem!");
+                                continue;
+                            }
+                            else {
+                                while (true) {
+                                    System.out.print("Masukkan nilai siswa: ");
+                                    int nilai = scanner.nextInt();
+
+                                    if (nilai > 100 || nilai < 0) {
+                                        System.out.println("Input nilai hanya antara 0 - 100.");
+                                        continue;
+                                    }
+                                    else {
+                                        dataSiswa.get(pilihanSiswa).add(nilai);
+                                        System.out.println("Penambahan nilai terhadap siswa yang bernama '" + pilihanSiswa + "' dengan nilai '" + nilai + "' berhasil di-lakukan!");
+                                        break;
+                                    }
                                 }
                             }
-                            
                         }
                 }          
             }

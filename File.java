@@ -87,8 +87,11 @@ public class File {
                             }
                         }
 
+                    // Lihat Raport Kelas
                     case 3:
                         System.out.println("--- Raport Kelas ---");
+
+                        // Untuk print output
                         for (String NamaSiswa : dataSiswa.keySet()){
                             System.out.println("\nSiswa: " + NamaSiswa);
                             System.out.print("- Nilai : ");
@@ -99,7 +102,7 @@ public class File {
                                 System.out.print(nilai + ", ");
                                 totalNilai += nilai;
                                 }
-                                
+
                             hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
                             System.out.println("\n- Rata - rata : " + hasil);
                             if (hasil >= 75) {

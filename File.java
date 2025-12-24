@@ -49,6 +49,7 @@ public class File {
 
                     // Input Nilai Ujian
                     case 2:
+                        
                         System.out.println("--- Penambahan Nilai Siswa ---");
                         
                         for (String namaSiswa : dataSiswa.keySet()){
@@ -63,9 +64,20 @@ public class File {
                             continue;
                         }
                         else {
-                            System.out.print("Masukkan nilai siswa: ");
-                            int nilai = scanner.nextInt();
+                            while (true) {
+                                System.out.print("Masukkan nilai siswa: ");
+                                int nilai = scanner.nextInt();
 
+                                if (nilai > 100 || nilai < 0) {
+                                    System.out.println("Input nilai hanya antara 0 - 100.");
+                                    continue;
+                                }
+                                else {
+                                    dataSiswa.get(pilihanSiswa).add(nilai);
+                                    System.out.println("Penambahan nilai terhadap siswa yang bernama '" + pilihanSiswa + "' dengan nilai '" + nilai + "' berhasil di-lakukan!");
+                                    break;
+                                }
+                            }
                             
                         }
                 }          

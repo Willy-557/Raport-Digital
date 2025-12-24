@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class File {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        ArrayList<Integer> nilaiSiswa = new ArrayList<>();
+        
         HashMap <String, ArrayList<Integer>> dataSiswa = new HashMap<>();
 
         while (true) {
-            System.out.println("=== Raport Digital ===");
+            System.out.println("\n=== Raport Digital ===");
             System.out.println("1. Tambah Siswa Baru");
             System.out.println("2. Input Nilai Ujian");
             System.out.println("3. Lihat Raport Kelas");
@@ -42,6 +42,7 @@ public class File {
                             break;
                         }
                         else {
+                            ArrayList<Integer> nilaiSiswa = new ArrayList<>();
                             dataSiswa.put(namaSiswaBaru, nilaiSiswa);
                             System.out.println("Siswa bernama '" + namaSiswaBaru + "' berhasil di-tambahkan ke sistem!");
                             break;
@@ -70,6 +71,7 @@ public class File {
                                 while (true) {
                                     System.out.print("Masukkan nilai siswa: ");
                                     int nilai = scanner.nextInt();
+                                    scanner.nextLine();
 
                                     if (nilai > 100 || nilai < 0) {
                                         System.out.println("Input nilai hanya antara 0 - 100.");
@@ -81,6 +83,30 @@ public class File {
                                         break;
                                     }
                                 }
+                                break;
+                            }
+                        }
+
+                    case 3:
+                        System.out.println("--- Raport Kelas ---");
+                        for (String NamaSiswa : dataSiswa.keySet()){
+                            System.out.println("\nSiswa: " + NamaSiswa);
+                            System.out.print("- Nilai : ");
+                            int totalNilai = 0;
+                            double hasil = 0;
+                            
+                            for (Integer nilai : dataSiswa.get(NamaSiswa)){
+                                System.out.print(nilai + ", ");
+                                totalNilai += nilai;
+                                }
+                                
+                            hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
+                            System.out.println("\n- Rata - rata : " + hasil);
+                            if (hasil >= 75) {
+                                System.out.println("- Status : LULUS");
+                            }
+                            else if (hasil < 75) {
+                                System.out.println("- Status : REMIDI");
                             }
                         }
                 }          

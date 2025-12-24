@@ -17,6 +17,7 @@ public class File {
 
             System.out.print(">> ");
             int opsi = scanner.nextInt();
+            scanner.nextLine();
 
             if (opsi == 4) {
                 System.out.println("Terimakasih!");
@@ -30,7 +31,13 @@ public class File {
                 switch (opsi) {
                     case 1:
                         System.out.println("--- Penambahan Siswa Baru ---");
-                        System.out.println();
+                        System.out.print("Masukkan nama siswa baru: ");
+                        String namaSiswaBaru = scanner.nextLine();
+
+                        if (storage.containsKey(namaSiswaBaru)) {
+                            System.out.println("Siswa yang bernama '" + namaSiswaBaru + "' sudah ada di dalam sistem!");
+                            break;
+                        }
                         break;
                 
                     default:

@@ -94,6 +94,10 @@ public class File {
 
                     // Lihat Raport Kelas
                     case 3:
+                        if (dataSiswa.isEmpty()) {
+                            System.out.println("Data siswa masih kosong!");
+                        }
+                        
                         System.out.println("\n--- Raport Kelas ---");
 
                         // Untuk print output
@@ -104,7 +108,7 @@ public class File {
                                 System.out.println("\nData siswa '" + NamaSiswa + "' masih kosong!");
                                 continue;
                             }
-                            
+
                             else {
                                     System.out.println("\nSiswa: " + NamaSiswa);
                                 System.out.print("- Nilai : ");

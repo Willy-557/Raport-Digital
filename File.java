@@ -36,6 +36,7 @@ public class File {
                         System.out.print("Masukkan nama siswa baru: ");
                         String namaSiswaBaru = scanner.nextLine();
 
+                        // Untuk cek apakah namanya siswa yang baru diinput sudah ada di sistem atau tidak.
                         if (dataSiswa.containsKey(namaSiswaBaru)) {
                             System.out.println("Siswa yang bernama '" + namaSiswaBaru + "' sudah ada di dalam sistem!");
                             break;
@@ -45,7 +46,19 @@ public class File {
                             System.out.println("Siswa bernama '" + namaSiswaBaru + "' berhasil di-tambahkan ke sistem!");
                             break;
                         }
-                }   
+
+                    // Input Nilai Ujian
+                    case 2:
+                        System.out.println("--- Penambahan Nilai Siswa ---");
+                        
+                        for (String namaSiswa : dataSiswa.keySet()){
+                            System.out.println("- " + namaSiswa);
+                        }
+
+                        System.out.print("Pilih siswa yang ingin di-inputkan nilainya: ");
+
+                        if ()
+                }          
             }
         }
     }   

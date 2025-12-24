@@ -121,7 +121,7 @@ public class File {
                                         }
                                     
                                     // Untuk print rata-rata dan menentukan lulus atau tidak
-                                    hasil = totalNilai / dataSiswa.get(NamaSiswa).size();
+                                    hasil = (double) totalNilai / dataSiswa.get(NamaSiswa).size();
                                     System.out.println("\n- Rata - rata : " + hasil);
                                     if (hasil >= 75) {
                                         System.out.println("- Status : LULUS");
